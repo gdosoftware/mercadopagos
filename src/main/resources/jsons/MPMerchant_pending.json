@@ -1,0 +1,60 @@
+{
+   "status": 200,
+   "response": {
+      "id": 627627206,
+      "preference_id": "271149698-de11c582-d7ae-42f1-8a36-b8ba25286b9b",
+      "date_created": "2017-12-28T11:18:00.000-04:00",
+      "last_updated": "2017-12-28T11:18:27.000-04:00",
+      "application_id": null,
+      "status": "closed",
+      "site_id": "MLA",
+      "payer": {
+         "id": 271151745,
+         "email": "test_user_33052976@testuser.com"
+      },
+      "collector": {
+         "id": 271149698,
+         "email": "test_user_17966143@testuser.com",
+         "nickname": "VENDEDOR_OFI"
+      },
+      "sponsor_id": null,
+      "payments": [
+         {
+            "id": 3294964694,
+            "transaction_amount": 120,
+            "total_paid_amount": 120,
+            "shipping_cost": 0,
+            "currency_id": "ARS",
+            "status": "pending",
+            "status_detail": "pending_waiting_payment",
+            "operation_type": "regular_payment",
+            "date_approved": null,
+            "date_created": "2017-12-28T11:18:25.000-04:00",
+            "last_modified": "2017-12-28T11:18:25.000-04:00",
+            "amount_refunded": 0
+         }
+      ],
+      "paid_amount": 0,
+      "refunded_amount": 0,
+      "shipping_cost": 0,
+      "cancelled": false,
+      "items": [
+         {
+            "category_id": "services",
+            "currency_id": "ARS",
+            "description": null,
+            "id": "LITE",
+            "picture_url": null,
+            "quantity": 1,
+            "unit_price": 120,
+            "title": "Membership LITE"
+         }
+      ],
+      "marketplace": "NONE",
+      "shipments": [],
+      "external_reference": null,
+      "additional_info": "MONTHLY",
+      "notification_url": "https://requestb.in/16mroup1",
+      "total_amount": 120
+   }
+}

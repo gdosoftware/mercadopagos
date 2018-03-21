@@ -5,6 +5,7 @@
  */
 package com.gdosoftware.mercadopago;
 
+import com.gdosoftware.mercadopago.api.AfterPaymentResult;
 import com.gdosoftware.mercadopago.api.MercadoPago;
 import com.gdosoftware.mercadopago.api.impl.MercadoPagoTemplate;
 import org.springframework.context.annotation.Bean;
@@ -20,11 +21,16 @@ public abstract class AbstractMercadoPagoConfigurer {
     public abstract String getApplicationId(Environment env);
     public abstract String getApplicationSecret(Environment env);
     public abstract boolean getSandbox(Environment env);
-       
+    public abstract AfterPaymentResult getAfterPaymentProcess();   
     
     public MercadoPago populateMercadoPago(Environment env){
         return new MercadoPagoTemplate(getApplicationId(env), 
                                        getApplicationSecret(env), 
                                        getSandbox(env));
+    }
+    
+    @Bean
+    public AfterPaymentResult populateAfterPaymentResult(){
+        return getAfterPaymentProcess();
     }
 }

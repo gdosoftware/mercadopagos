@@ -1,0 +1,77 @@
+{
+   "status": 200,
+   "response": {
+      "collection": {
+         "id": 3294964694,
+         "site_id": "MLA",
+         "date_created": "2017-12-28T11:18:25.000-04:00",
+         "date_approved": null,
+         "money_release_date": null,
+         "last_modified": "2017-12-28T11:18:25.000-04:00",
+         "payer": {
+            "id": 271151745,
+            "first_name": "Test",
+            "last_name": "Test",
+            "phone": {
+               "area_code": null,
+               "number": "011 4568 2369",
+               "extension": ""
+            },
+            "identification": {
+               "type": "DNI",
+               "number": "1111111"
+            },
+            "email": "test_user_33052976@testuser.com",
+            "nickname": "COMPRADOR_OFI"
+         },
+         "order_id": null,
+         "external_reference": null,
+         "merchant_order_id": 627627206,
+         "reason": "Membership LITE",
+         "currency_id": "ARS",
+         "transaction_amount": 120,
+         "net_received_amount": 0,
+         "total_paid_amount": 120,
+         "shipping_cost": 0,
+         "coupon_amount": 0,
+         "coupon_fee": 0,
+         "finance_fee": 0,
+         "discount_fee": 0,
+         "coupon_id": null,
+         "status": "pending",
+         "status_detail": "pending_waiting_payment",
+         "issuer_id": null,
+         "installment_amount": 0,
+         "deferred_period": null,
+         "payment_type": "ticket",
+         "marketplace": "NONE",
+         "operation_type": "regular_payment",
+         "marketplace_fee": 0,
+         "deduction_schema": null,
+         "refunds": [],
+         "amount_refunded": 0,
+         "last_modified_by_admin": null,
+         "api_version": "2",
+         "concept_id": null,
+         "concept_amount": 0,
+         "internal_metadata": {
+            "tags": [
+               "payment_option_id-pagofacil"
+            ],
+            "processed_by": "checkout-off-v1"
+         },
+         "collector": {
+            "id": 271149698,
+            "first_name": "Test",
+            "last_name": "Test",
+            "phone": {
+               "area_code": "01",
+               "number": "45677890",
+               "extension": ""
+            },
+            "email": "test_user_17966143@testuser.com",
+            "nickname": "VENDEDOR_OFI"
+         }
+      }
+   }
+}

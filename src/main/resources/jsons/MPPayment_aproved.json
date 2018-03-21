@@ -1,0 +1,85 @@
+{
+   "status": 200,
+   "response": {
+      "collection": {
+         "id": 3294749102,
+         "site_id": "MLA",
+         "date_created": "2017-12-28T10:00:22.000-04:00",
+         "date_approved": "2017-12-28T10:00:25.000-04:00",
+         "money_release_date": "2018-01-11T10:00:25.000-04:00",
+         "last_modified": "2017-12-28T10:00:15.000-04:00",
+         "payer": {
+            "id": 271151745,
+            "first_name": "Test",
+            "last_name": "Test",
+            "phone": {
+               "area_code": null,
+               "number": "011 4568 2369",
+               "extension": ""
+            },
+            "identification": {
+               "type": "DNI",
+               "number": "1111111"
+            },
+            "email": "test_user_33052976@testuser.com",
+            "nickname": "COMPRADOR_OFI"
+         },
+         "order_id": null,
+         "external_reference": null,
+         "merchant_order_id": 627570471,
+         "reason": "Membership LITE",
+         "currency_id": "ARS",
+         "transaction_amount": 120,
+         "net_received_amount": 113.39,
+         "total_paid_amount": 120,
+         "shipping_cost": 0,
+         "coupon_amount": 0,
+         "coupon_fee": 0,
+         "finance_fee": 0,
+         "discount_fee": 0,
+         "coupon_id": null,
+         "status": "approved",
+         "status_detail": "accredited",
+         "installments": 1,
+         "issuer_id": 310,
+         "installment_amount": 120,
+         "deferred_period": null,
+         "payment_type": "credit_card",
+         "marketplace": "NONE",
+         "operation_type": "regular_payment",
+         "transaction_order_id": null,
+         "statement_descriptor": "WWW.MERCADOPAGO.COM",
+         "cardholder": {
+            "name": "Pago aprobado",
+            "identification": {
+               "number": "23569785",
+               "type": "DNI"
+            }
+         },
+         "authorization_code": "1234567",
+         "marketplace_fee": 0,
+         "deduction_schema": null,
+         "refunds": [],
+         "amount_refunded": 0,
+         "last_modified_by_admin": null,
+         "api_version": "2",
+         "concept_id": null,
+         "concept_amount": 0,
+         "internal_metadata": {
+            "processed_by": "checkout-off-v1"
+         },
+         "collector": {
+            "id": 271149698,
+            "first_name": "Test",
+            "last_name": "Test",
+            "phone": {
+               "area_code": "01",
+               "number": "45677890",
+               "extension": ""
+            },
+            "email": "test_user_17966143@testuser.com",
+            "nickname": "VENDEDOR_OFI"
+         }
+      }
+   }
+}

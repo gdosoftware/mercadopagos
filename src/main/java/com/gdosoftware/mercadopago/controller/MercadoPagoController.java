@@ -5,6 +5,12 @@
  */
 package com.gdosoftware.mercadopago.controller;
 
+import com.gdosoftware.mercadopago.api.AfterPaymentResult;
+import com.gdosoftware.mercadopago.api.MercadoPago;
+import com.gdosoftware.mercadopago.domain.MPNotify;
+import com.gdosoftware.mercadopago.domain.MPPaymentResult;
+import com.gdosoftware.mercadopago.events.MerchantEvent;
+import com.gdosoftware.mercadopago.events.PaymentEvent;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.ApplicationEventPublisher;
@@ -25,34 +31,45 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 @RequestMapping("/mp")
 public class MercadoPagoController {
     
-    @Value("${com.gdosoftware.mercadopago.successpage}")
-    private String successUrl;  
-    @Value("${com.gdosoftware.mercadopago.failurepage}")
-    private String failureUrl;  
-    @Value("${com.gdosoftware.mercadopago.pendingpage}")
-    private String pendingUrl; 
+  
     
     @Autowired
     private ApplicationEventPublisher appEventPublisher;
     
+    @Autowired
+    private AfterPaymentResult afterPayment;
+    
+    @Autowired
+    private MercadoPago mercadoPago;
+    
     
     @RequestMapping(value = "success", method = RequestMethod.GET)
-    public String success(RedirectAttributes attr){
-        return "redirect:"+successUrl;
+    public String success(MPPaymentResult paymentResult, RedirectAttributes attr){
+       return afterPayment.onSuccess(paymentResult, attr);
     }
     
      @RequestMapping(value = "failure", method = RequestMethod.GET)
-    public String failure(RedirectAttributes attr){
-        return "redirect:" + failureUrl;
+    public String failure(MPPaymentResult paymentResult, RedirectAttributes attr){
+        return afterPayment.onFailure(paymentResult, attr);
     }
     
     @RequestMapping(value = "pending", method = RequestMethod.GET)
-    public String pending(RedirectAttributes attr){
-        return "redirect:" + pendingUrl;
+    public String pending(MPPaymentResult paymentResult, RedirectAttributes attr){
+        return afterPayment.onPending(paymentResult, attr);
     }
     
     @RequestMapping(value = "notification", method = RequestMethod.POST)
-    public @ResponseBody ResponseEntity failure(){
+    public @ResponseBody ResponseEntity notifications(MPNotify notify){
+        
+        switch(notify.getTopic()){
+             case "merchant_order":
+                 appEventPublisher.publishEvent(new MerchantEvent(notify, mercadoPago));
+                 break;
+             case "payment" :
+                 appEventPublisher.publishEvent(new PaymentEvent(notify, mercadoPago));
+                 break;
+        }
+       
          return new ResponseEntity<>(HttpStatus.OK);   
     }
     

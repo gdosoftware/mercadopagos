@@ -1,0 +1,60 @@
+{
+   "status": 200,
+   "response": {
+      "id": 627570471,
+      "preference_id": "271149698-98603a6a-8369-4a37-b8b9-b97b81ee1678",
+      "date_created": "2017-12-28T09:59:26.000-04:00",
+      "last_updated": "2017-12-28T10:00:15.000-04:00",
+      "application_id": null,
+      "status": "closed",
+      "site_id": "MLA",
+      "payer": {
+         "id": 271151745,
+         "email": "test_user_33052976@testuser.com"
+      },
+      "collector": {
+         "id": 271149698,
+         "email": "test_user_17966143@testuser.com",
+         "nickname": "VENDEDOR_OFI"
+      },
+      "sponsor_id": null,
+      "payments": [
+         {
+            "id": 3294749102,
+            "transaction_amount": 120,
+            "total_paid_amount": 120,
+            "shipping_cost": 0,
+            "currency_id": "ARS",
+            "status": "approved",
+            "status_detail": "accredited",
+            "operation_type": "regular_payment",
+            "date_approved": "2017-12-28T10:00:25.000-04:00",
+            "date_created": "2017-12-28T10:00:22.000-04:00",
+            "last_modified": "2017-12-28T10:00:25.000-04:00",
+            "amount_refunded": 0
+         }
+      ],
+      "paid_amount": 120,
+      "refunded_amount": 0,
+      "shipping_cost": 0,
+      "cancelled": false,
+      "items": [
+         {
+            "category_id": "services",
+            "currency_id": "ARS",
+            "description": null,
+            "id": "djahdkajshd",
+            "picture_url": null,
+            "quantity": 1,
+            "unit_price": 120,
+            "title": "Membership LITE"
+         }
+      ],
+      "marketplace": "NONE",
+      "shipments": [],
+      "external_reference": null,
+      "additional_info": null,
+      "notification_url": "https://requestb.in/16mroup1",
+      "total_amount": 120
+   }
+}
