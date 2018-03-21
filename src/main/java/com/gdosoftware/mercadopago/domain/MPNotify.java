@@ -13,6 +13,13 @@ public class MPNotify {
     private String topic;
     private String id;
 
+    public MPNotify(String topic, String id) {
+        this.topic = topic;
+        this.id = id;
+    }
+    
+    
+
     public String getTopic() {
         return topic;
     }

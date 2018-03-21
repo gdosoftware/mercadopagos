@@ -103,6 +103,13 @@ public class MPPayment {
     public void setAmount_refunded(Double amount_refunded) {
         this.amount_refunded = amount_refunded;
     }
+
+    @Override
+    public String toString() {
+        return "MPPayment{" + "id=" + id + ", transaction_amount=" + transaction_amount + ", total_paid_amount=" + total_paid_amount + ", currency_id=" + currency_id + ", status=" + status + ", status_detail=" + status_detail + ", operation_type=" + operation_type + ", date_approved=" + date_approved + ", date_created=" + date_created + ", amount_refunded=" + amount_refunded + '}';
+    }
+
+   
     
     
     

@@ -21,6 +21,7 @@ public abstract class AbstractMercadoPagoConfigurer {
     public abstract String getApplicationId(Environment env);
     public abstract String getApplicationSecret(Environment env);
     public abstract boolean getSandbox(Environment env);
+    public abstract String getRootUrl(Environment env);
     public abstract AfterPaymentResult getAfterPaymentProcess();   
     
     public MercadoPago populateMercadoPago(Environment env){
@@ -32,5 +33,10 @@ public abstract class AbstractMercadoPagoConfigurer {
     @Bean
     public AfterPaymentResult populateAfterPaymentResult(){
         return getAfterPaymentProcess();
+    }
+    
+    @Bean(name = "rootUrl")
+    public String populateRootUrl(Environment env){
+        return getRootUrl(env);
     }
 }

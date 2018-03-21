@@ -11,16 +11,22 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.codehaus.jettison.json.JSONException;
 import org.codehaus.jettison.json.JSONObject;
+import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  *
  * @author Dani
  */
 public abstract class AbstractMercadoPagoOperations {
+    
+    
+    protected String rootUrl;
+    
     protected MP mepa;
 
-    public AbstractMercadoPagoOperations(MP mercadoPago) {
+    public AbstractMercadoPagoOperations(MP mercadoPago, String rootUrl) {
         this.mepa = mercadoPago;
+        this.rootUrl = rootUrl;
     }
     
     public <T> T getResult(JSONObject json, Class<T> clazz){

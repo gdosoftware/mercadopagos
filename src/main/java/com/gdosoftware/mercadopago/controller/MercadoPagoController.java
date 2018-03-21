@@ -17,6 +17,7 @@ import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -44,24 +45,71 @@ public class MercadoPagoController {
     
     
     @RequestMapping(value = "success", method = RequestMethod.GET)
-    public String success(MPPaymentResult paymentResult, RedirectAttributes attr){
+    public String success(@RequestParam("collection_id")String collectionId,
+                          @RequestParam("collection_status")String collectionStatus,
+                          @RequestParam("preference_id") String preferenceId,
+                          @RequestParam("external_reference")String externalRef,
+                          @RequestParam("payment_type") String paymentType,
+                          @RequestParam("merchant_order_id") Long mercantId,
+                          Model attr){
+        
+        MPPaymentResult paymentResult = new MPPaymentResult();
+        paymentResult.setCollection_id(!collectionId.equals("null") ? Long.parseLong(collectionId) : null);
+        paymentResult.setCollection_status(collectionStatus);
+        paymentResult.setExternal_reference(externalRef);
+        paymentResult.setMerchant_order_id(mercantId);
+        paymentResult.setPayment_type(paymentType);
+        paymentResult.setPreference_id(preferenceId);
+        
        return afterPayment.onSuccess(paymentResult, attr);
     }
     
      @RequestMapping(value = "failure", method = RequestMethod.GET)
-    public String failure(MPPaymentResult paymentResult, RedirectAttributes attr){
+    public String failure(@RequestParam("collection_id")String collectionId,
+                          @RequestParam("collection_status")String collectionStatus,
+                          @RequestParam("preference_id") String preferenceId,
+                          @RequestParam("external_reference")String externalRef,
+                          @RequestParam("payment_type") String paymentType,
+                          @RequestParam("merchant_order_id") Long mercantId,
+                          Model attr){
+        
+        MPPaymentResult paymentResult = new MPPaymentResult();
+        paymentResult.setCollection_id(!collectionId.equals("null") ? Long.parseLong(collectionId) : null);
+        paymentResult.setCollection_status(collectionStatus);
+        paymentResult.setExternal_reference(externalRef);
+        paymentResult.setMerchant_order_id(mercantId);
+        paymentResult.setPayment_type(paymentType);
+        paymentResult.setPreference_id(preferenceId);
+        
         return afterPayment.onFailure(paymentResult, attr);
     }
     
     @RequestMapping(value = "pending", method = RequestMethod.GET)
-    public String pending(MPPaymentResult paymentResult, RedirectAttributes attr){
+    public String pending(@RequestParam("collection_id")String collectionId,
+                          @RequestParam("collection_status")String collectionStatus,
+                          @RequestParam("preference_id") String preferenceId,
+                          @RequestParam("external_reference")String externalRef,
+                          @RequestParam("payment_type") String paymentType,
+                          @RequestParam("merchant_order_id") Long mercantId,
+                          Model attr){
+        
+        MPPaymentResult paymentResult = new MPPaymentResult();
+        paymentResult.setCollection_id(!collectionId.equals("null") ? Long.parseLong(collectionId) : null);
+        paymentResult.setCollection_status(collectionStatus);
+        paymentResult.setExternal_reference(externalRef);
+        paymentResult.setMerchant_order_id(mercantId);
+        paymentResult.setPayment_type(paymentType);
+        paymentResult.setPreference_id(preferenceId);
+        
         return afterPayment.onPending(paymentResult, attr);
     }
     
     @RequestMapping(value = "notification", method = RequestMethod.POST)
-    public @ResponseBody ResponseEntity notifications(MPNotify notify){
+    public @ResponseBody ResponseEntity notifications(@RequestParam("topic") String topic,
+                                                      @RequestParam("id") String id){
         
-        switch(notify.getTopic()){
+        MPNotify notify = new MPNotify(topic, id);
+        switch(topic){
              case "merchant_order":
                  appEventPublisher.publishEvent(new MerchantEvent(notify, mercadoPago));
                  break;

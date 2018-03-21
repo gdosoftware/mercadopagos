@@ -20,10 +20,12 @@ import org.codehaus.jettison.json.JSONObject;
  * @author Dani
  */
 public class MerchantTemplate extends AbstractMercadoPagoOperations implements MerchantOperations{
-    
-    public MerchantTemplate(MP mercadoPago) {
-        super(mercadoPago);
+
+    public MerchantTemplate(MP mercadoPago, String rootUrl) {
+        super(mercadoPago, rootUrl);
     }
+    
+    
 
     @Override
     public MPMerchant getMerchant(Long merchantId) {

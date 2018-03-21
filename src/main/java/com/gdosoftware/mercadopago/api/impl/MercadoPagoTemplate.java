@@ -10,12 +10,16 @@ import com.gdosoftware.mercadopago.api.MerchantOperations;
 import com.gdosoftware.mercadopago.api.PaymentOperations;
 import com.gdosoftware.mercadopago.api.PreferenceOperations;
 import com.mercadopago.MP;
+import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  *
  * @author Dani
  */
 public class MercadoPagoTemplate extends MP implements MercadoPago{
+    
+    @Autowired
+    private String rootUrl;
 
     public MercadoPagoTemplate(String client_id, String client_secret, boolean sandBox) {
         super(client_id, client_secret);
@@ -24,17 +28,17 @@ public class MercadoPagoTemplate extends MP implements MercadoPago{
 
     @Override
     public PreferenceOperations getPreferenceOperations() {
-        return new PreferenceTemplate(this);
+        return new PreferenceTemplate(this,rootUrl);
     }
 
     @Override
     public MerchantOperations getMerchantOperations() {
-        return new MerchantTemplate(this);
+        return new MerchantTemplate(this,rootUrl);
     }
 
     @Override
     public PaymentOperations getPaymentOperations() {
-        return new PaymentTemplate(this);
+        return new PaymentTemplate(this,rootUrl);
     }
     
 }

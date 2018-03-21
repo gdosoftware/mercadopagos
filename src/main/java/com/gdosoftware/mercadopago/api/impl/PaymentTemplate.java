@@ -17,9 +17,11 @@ import java.util.Map;
  */
 public class PaymentTemplate extends AbstractMercadoPagoOperations implements PaymentOperations{
 
-    public PaymentTemplate(MP mercadoPago) {
-        super(mercadoPago);
+    public PaymentTemplate(MP mercadoPago, String rootUrl) {
+        super(mercadoPago, rootUrl);
     }
+
+    
 
     @Override
     public MPPayment getPayment(String paymentId) {

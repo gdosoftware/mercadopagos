@@ -7,13 +7,11 @@ package com.gdosoftware.mercadopago.api.impl;
 
 import com.gdosoftware.mercadopago.api.PreferenceOperations;
 import com.gdosoftware.mercadopago.domain.MPBackUrls;
-import com.gdosoftware.mercadopago.domain.MPItem;
 import com.gdosoftware.mercadopago.domain.MPPreference;
 import com.google.gson.Gson;
 import com.mercadopago.MP;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import org.codehaus.jettison.json.JSONException;
 import org.codehaus.jettison.json.JSONObject;
 
 /**
@@ -22,15 +20,17 @@ import org.codehaus.jettison.json.JSONObject;
  */
 public class PreferenceTemplate extends AbstractMercadoPagoOperations implements PreferenceOperations {
 
-    public PreferenceTemplate(MP mercadoPago) {
-        super(mercadoPago);
+    public PreferenceTemplate(MP mercadoPago, String rootUrl) {
+        super(mercadoPago, rootUrl);
     }
+   
 
     @Override
     public MPPreference createPreference(MPPreference preference) {
         Gson gson = new Gson();
         try {
-            preference.setBack_urls(new MPBackUrls("/mp/success", "/mp/pending", "/mp/failure"));
+            preference.setBack_urls(new MPBackUrls(rootUrl+"/mp/success",rootUrl+"/mp/pending",rootUrl+"/mp/failure"));
+            preference.setNotification_url(rootUrl+"/mp/notifications");
             JSONObject json = mepa.createPreference(gson.toJson(gson.toJsonTree(preference)));
             return getResult(json, MPPreference.class);
         } catch (Exception ex) {

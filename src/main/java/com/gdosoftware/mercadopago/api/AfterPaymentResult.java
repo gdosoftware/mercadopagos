@@ -7,6 +7,7 @@ package com.gdosoftware.mercadopago.api;
 
 import com.gdosoftware.mercadopago.domain.MPPaymentResult;
 import java.util.Map;
+import org.springframework.ui.Model;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 /**
@@ -20,7 +21,7 @@ public interface AfterPaymentResult {
      * @param attributes mapa de atributos que seran inyectados en el modelo 
      * @return pagina de redireccion despues del proceso
      */
-    public String onSuccess(MPPaymentResult result, RedirectAttributes attributes);
-    public String onPending(MPPaymentResult result, RedirectAttributes attributes);
-    public String onFailure(MPPaymentResult result, RedirectAttributes attributes);
+    public String onSuccess(MPPaymentResult result, Model attributes);
+    public String onPending(MPPaymentResult result, Model attributes);
+    public String onFailure(MPPaymentResult result, Model attributes);
 }

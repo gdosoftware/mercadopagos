@@ -92,6 +92,11 @@ public class MPMerchant {
         this.payments = payments;
     }
 
+    @Override
+    public String toString() {
+        return "MPMerchant{" + "id=" + id + ", preference_id=" + preference_id + ", date_created=" + date_created + ", status=" + status + ", site_id=" + site_id + ", payer=" + payer + ", items=" + items + ", additional_info=" + additional_info + ", payments=" + payments + '}';
+    }
+
     
     
     
