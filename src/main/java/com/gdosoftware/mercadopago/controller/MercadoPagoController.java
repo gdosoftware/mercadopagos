@@ -29,7 +29,6 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
  * @author Dani
  */
 @Controller
-@RequestMapping(value = "mp")
 public class MercadoPagoController {
     
   
@@ -104,7 +103,7 @@ public class MercadoPagoController {
         return afterPayment.onPending(paymentResult, attr);
     }
     
-    @RequestMapping(value = "notification", method = RequestMethod.POST)
+    @RequestMapping(value = "mpnotification", method = RequestMethod.POST)
     public @ResponseBody ResponseEntity notifications(@RequestParam("topic") String topic,
                                                       @RequestParam("id") String id){
         
