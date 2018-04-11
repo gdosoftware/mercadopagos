@@ -29,8 +29,8 @@ public class PreferenceTemplate extends AbstractMercadoPagoOperations implements
     public MPPreference createPreference(MPPreference preference) {
         Gson gson = new Gson();
         try {
-            preference.setBack_urls(new MPBackUrls(rootUrl+"/mepapi/success",rootUrl+"/mepapi/pending",rootUrl+"/mepapi/failure"));
-            preference.setNotification_url(rootUrl+"/mepapi/notifications");
+            preference.setBack_urls(new MPBackUrls(rootUrl+"/mp/success",rootUrl+"/mp/pending",rootUrl+"/mp/failure"));
+            preference.setNotification_url(rootUrl+"/mp/notifications");
             JSONObject json = mepa.createPreference(gson.toJson(gson.toJsonTree(preference)));
             return getResult(json, MPPreference.class);
         } catch (Exception ex) {

@@ -10,7 +10,7 @@ import com.gdosoftware.mercadopago.api.MerchantOperations;
 import com.gdosoftware.mercadopago.api.PaymentOperations;
 import com.gdosoftware.mercadopago.api.PreferenceOperations;
 import com.mercadopago.MP;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 
 /**
  *
@@ -18,7 +18,7 @@ import org.springframework.beans.factory.annotation.Autowired;
  */
 public class MercadoPagoTemplate extends MP implements MercadoPago{
     
-    @Autowired
+    @Value("${com.gdosoftware.mercadopago.rooturl}")
     private String rootUrl;
 
     public MercadoPagoTemplate(String client_id, String client_secret, boolean sandBox) {
