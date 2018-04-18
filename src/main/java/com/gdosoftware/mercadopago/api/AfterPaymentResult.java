@@ -6,9 +6,7 @@
 package com.gdosoftware.mercadopago.api;
 
 import com.gdosoftware.mercadopago.domain.MPPaymentResult;
-import java.util.Map;
 import org.springframework.ui.Model;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 /**
  *

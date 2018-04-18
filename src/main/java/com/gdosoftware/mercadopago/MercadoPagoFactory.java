@@ -7,17 +7,15 @@ package com.gdosoftware.mercadopago;
 
 import com.gdosoftware.mercadopago.api.MercadoPago;
 import com.gdosoftware.mercadopago.api.impl.MercadoPagoTemplate;
-import org.springframework.context.annotation.Bean;
-import org.springframework.core.env.Environment;
 
 /**
  *
  * @author Dani
  */
-public abstract class MercadoPagoSingletonConfigurer extends AbstractMercadoPagoConfigurer{
+public  class MercadoPagoFactory{
     
-    @Bean
-    public MercadoPago populateMercadoPagoSingleton(Environment env){
-        return new MercadoPagoTemplate(getApplicationId(env),getApplicationSecret(env),getSandbox(env));
+    
+    public static MercadoPago create(String applicationId, String clientSecret, boolean sandbox){
+        return new MercadoPagoTemplate(applicationId, clientSecret, sandbox);
     }
 }

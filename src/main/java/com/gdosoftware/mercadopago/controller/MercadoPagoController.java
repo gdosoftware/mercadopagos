@@ -29,6 +29,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
  * @author Dani
  */
 @Controller
+@RequestMapping("mp")
 public class MercadoPagoController {
     
   
